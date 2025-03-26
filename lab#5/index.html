@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>聖誕樹</title>
+</head>
+
+    <h1>請打開瀏覽器 Console 查看聖誕樹</h1>
+    <button onclick="runTree()">生成聖誕樹</button>
+
+    <script>
+        function tree(n) {
+            printTreeTop(n);
+            printTreeBottom(n);
+        }
+
+        function printTreeTop(n) {
+            for (let i = 0; i < n; i++) {
+                console.log(repeatchar(n - i - 1, ' ') + repeatchar(2 * i + 1, '*'));
+            }
+        }
+
+        function printTreeBottom(n) {
+            for (let i = 0; i < 3; i++) {
+                console.log(repeatchar(n - 1, ' ') + '*');
+            }
+        }
+
+        function repeatchar(n, arg_char) {
+            return arg_char.repeat(n);
+        }
+
+        function runTree() {
+            let height = parseInt(prompt("請輸入聖誕樹的高度："), 10);
+            if (!isNaN(height) && height > 0) {
+                tree(height);
+            } else {
+                alert("請輸入有效的數字！");
+            }
+        }
+    </script>
+
+</html>
